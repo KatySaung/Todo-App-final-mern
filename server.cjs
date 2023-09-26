@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+const ensureLoggedIn = require("./config/ensureLoggedIn.cjs")
 
 // Connect to database
 // require the file is running and bringing in the file at the same time.
@@ -26,7 +27,7 @@ app.use(express.json( ));
 // https://www.favicon.cc/
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 // below the express.static is making build folder a static asset, changed build to 'dist'.
-// The __dirname is saying go to mern infrastructure and than go to the dist
+// The __dirname is saying go to final-project-mern and than go to the dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // checkToken Middleware.(sets the req.user & req.exp properties on the request object)
@@ -40,9 +41,15 @@ app.get('/api/test', (req, res) => {
   res.send('You just hit a API route');
 });
 
+// TEST REDIRECT from Login route. QUESTION: IS 2nd CATCH ALL HERE OK?
+// app.get("/*", (req, res) => {
+//   res.redirect("/api/test");
+// });
+
+
   const userRouter = require("./routes/api/users.cjs");
   // Router setup
-  // If the request starts with /api/users/ it directs the request to the userRouter 
+  // If the request starts with /api it directs the request to the userRouter 
   app.use('/api/users', userRouter);
 
 // The following "catch all" route (note the *) is necessary

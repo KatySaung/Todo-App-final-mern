@@ -1,6 +1,8 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt")
 
+// @models
+// User Log In Schema
 // 6 rounds of decrypt is good. Note: the more complex the decryption the easier to hack
 const SALT_ROUNDS = 6
 
@@ -21,7 +23,6 @@ const userSchema = new Schema({
     }
 }, {
     timestamps: true,
-    // Even though it's hashed - don't serialize the password
     toJSON: {
         transform: function (doc, ret) {
             delete ret.password;
