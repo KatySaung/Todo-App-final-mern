@@ -3,15 +3,29 @@ import { getToken } from "./users-service";
 
 const BASE_URL = '/api/users';
 
+// @utilities
+// Export Create User
 export function signUp(userData) {
   return sendRequest(BASE_URL, 'POST', userData);
 }
 
+// Export Function User Login
 // credentials is sent back to the user request
 export function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
+// Export Function User Update
+// credentials is sent back to the user request
+export function update(credentials) {
+  return sendRequest(`${BASE_URL}`, 'PUT', credentials);
+}
+// Export Function User Delete
+// credentials is sent back to the user request
+export function deleteUser(credentials) {
+  return sendRequest(`${BASE_URL}`, 'DELETE', credentials);
+}
 
+// checkToken
 // not sending any data
 export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`)

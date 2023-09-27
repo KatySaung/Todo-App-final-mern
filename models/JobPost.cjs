@@ -23,7 +23,6 @@ const jobPostSchema = new Schema(
         },
         contact: [{
             body: String,
-            date: Date
         }],
 
         date: {
