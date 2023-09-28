@@ -4,8 +4,8 @@ const BASE_URL = '/api/users';
 
 // @utilities
 // Create User
-export function signUp(userData) {
-  return sendRequest(BASE_URL, 'POST', userData);
+export function createUser(userData) {
+  return sendRequest(`${BASE_URL}`, 'POST', userData);
 }
 
 //  User Login
@@ -52,67 +52,3 @@ async function sendRequest(url, method = 'GET', payload = null) {
   throw new Error('Bad Request');
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*---------Below is the same as above code but it is not following DRY----------*/
-// // users-api.js
-// // already created the proxy in vite.config.js so the path already goes to 'http://localhost:3001',
-// // we are already inside the try/catch from SignUpForm.jsx, so here only calling a function with a function.
-// const BASE_URL = "/api/users"
-
-// export async function signUp(userData) {
-//   // Fetch uses an options object as a second arg to make requests
-//   // other than basic GET requests, include data, headers, etc.
-//   //   here sending the user the user data
-//   const backendResponse = await fetch(BASE_URL, {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     // Fetch requires data payloads to be stringified
-//     // and assigned to a body property on the options object
-//     // we need to use the stringify method on the argument userData
-//     body: JSON.stringify(userData)
-//   })
-
-//   // the return res.json is giving back the token. The controllers api(users.cjs) sending from backend to the here the frontend (utilities users-api.js)
-//   // function is a LIFO with a stack
-//   if (backendResponse.ok) {
-//     return backendResponse.json();
-//   } else {
-//     throw new Error("Invalid Sign Up");
-//   }
-// }
-
-
-// export async function login(credentials) {
-//   // Fetch uses an options object as a second arg to make requests
-//   // other than basic GET requests, include data, headers, etc.
-//   const backendResponse = await fetch(`${BASE_URL}/login`, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     // Fetch requires data payloads to be stringified
-//     // and assigned to a body property on the options object
-//     body: JSON.stringify(credentials),
-//   });
-
-//   if (backendResponse.ok) {
-//     return backendResponse.json();
-//   } else {
-//     throw new Error('Invalid Login');
-//   }
-// }

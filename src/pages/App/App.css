@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   /* text-align: center; */
+
+
 }
 header {
   position: fixed;
@@ -31,6 +33,9 @@ h1{
   float: right;
 }
 
+main{
+  background-image: url("app-bg");
+}
 .card {
   padding: 2em;
 }

@@ -3,15 +3,14 @@ require('dotenv').config( );
 const db = require('./config/database.cjs');
 
 // Require the Mongoose models
-const User = require('./models/user.cjs');
-// const Item = require('./models/item');
-// const Category = require('./models/category');
-// const Order = require('./models/order');
+const User = require('../models/user.cjs');
+// const JobPost= require('../models/jobPost');
+
 
 // Only run crud-helper once.In terminal "node crud-helper.cjs"
 // Local variables will come in handy for holding retrieved documents
-let user, item, category, order;
-let users, items, categories, orders;
+let user, jobPost;
+let users, jobPosts;
 
 // This has a timeout and will automatically close the crud-helper connection after it runs,
 // db.close is exported from config> database.cjs.

@@ -1,9 +1,9 @@
 import { Component } from "react";
-import { signUp } from "../../utilities/users-service";
+import { createUser } from "../../utilities/users-service";
 
 
 // use the class field approach(can also use constructor field approach)
-export default class SignUpForm extends Component {
+export default class CreateUser extends Component {
     state = {
         name: '',
         email: '',
@@ -32,7 +32,7 @@ handleSubmit = async (evt) => {
         const formData = {...this.state}
         delete formData.error; 
         delete formData.confirm;
-        const user = await signUp(formData)
+        const user = await createUser(formData)
         this.props.setUser(user)
     } catch (err) {
         this.setState({error: "Sign Up Failed - Try Again"})

@@ -1,10 +1,9 @@
-// DeleteForm.jsx
 
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
 
-export default function DeleteForm({ user, setUser }) {
+export default function Delete({ user, setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -17,8 +16,6 @@ export default function DeleteForm({ user, setUser }) {
     setError('');
   }
     // handleLogOut 
-  // Delegate to the users-service
-   // Update state will also cause a re-render
    const handleLogOut = () => {
     usersService.logOut();
     setUser(null);

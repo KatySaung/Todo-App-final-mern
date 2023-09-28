@@ -1,4 +1,4 @@
-const Job = require('../../models/job.cjs');
+const Job = require('../../models/jobPost.cjs');
 
 // @controllers,api
 // Jobs

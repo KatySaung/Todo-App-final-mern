@@ -1,8 +1,6 @@
 /* CSS Custom Properties */
 /* Part2: Add CSS to index.css */
 :root {
-
-  --gray: grayscale;
   --white:white;
   --tomato: var(--tomato);
   --black: var(--black);
@@ -19,7 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #d6d6e0;
-  background-image: url("body-background.jpg");
+  background-image: url("body-bg.jpg");
   background-size: cover;
   padding: 2vmin;
   height: 100vh;
@@ -50,7 +48,7 @@ code {
 .section-heading {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: right;
   background-color: var(--black);
   color: var(--text-dark);
   border: .1vmin solid var(--black);

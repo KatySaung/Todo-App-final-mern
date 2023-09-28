@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   app.put('/:id', (req, res) => {
     res.json({message:"Update Job Posts"})
   });
-  app.delete('/id', (req, res) => {
+  app.delete('/:id', (req, res) => {
     res.json({message:"Delete Job Posts"})
   });
 

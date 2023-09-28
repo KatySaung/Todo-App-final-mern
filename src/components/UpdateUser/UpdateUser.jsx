@@ -4,7 +4,7 @@ import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
 
-export default function UpdateForm({ setUser }) {
+export default function UpdateUser({ setUser }) {
 const [credentials, setCredentials] = useState({
   email: '',
   password: '',
@@ -27,7 +27,7 @@ const handleLogOut = () => {
 async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await usersService.update(credentials);
+      await usersService.updateUser(credentials);
       setUser(null);
     } catch {
       setError('Delete Account Unsuccessful - Try Again');

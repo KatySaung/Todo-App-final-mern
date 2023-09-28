@@ -3,8 +3,8 @@ import * as usersAPI from "./users-api"
 
 // users-service.js
 //Create User function
-export async function signUp (userData) {
-  const token = await usersAPI.signUp(userData);
+export async function createUser (userData) {
+  const token = await usersAPI.createUser(userData);
 localStorage.setItem("token", token)
   return getUser( );
 }

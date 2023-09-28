@@ -1,10 +1,10 @@
-import SignUpForm from "../../components/SignUpForm/SignUpForm"
-import LoginForm from "../../components/LoginForm/LogInForm"
-import DeleteForm from "../../components/DeleteForm/DeleteForm"
+import CreateUser from "../../components/CreateUser/CreateUser"
+import Login from "../../components/Login/LogIn"
+import Delete from "../../components/Delete/Delete"
 
 // @ route /jobs/login
 // Login Page
-function LogInPage(props) {
+function LogIn(props) {
   return (
     <main>
       <h1>SEI Job Search</h1>
@@ -16,4 +16,4 @@ function LogInPage(props) {
   )
 }
 
-export default LogInPage
+export default LogIn

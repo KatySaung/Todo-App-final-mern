@@ -5,7 +5,7 @@ require("./database.cjs");
 // @config
 // seed file Job Posts
 // check if default date with date.now is included in post
-const JobPost = require("../models/JobPost.cjs")
+const JobPost = require("./models/JobPost.cjs")
 
 (async function () {
     await JobPost.deleteMany({});
@@ -26,3 +26,4 @@ const JobPost = require("../models/JobPost.cjs")
   
     process.exit();
   })();
+

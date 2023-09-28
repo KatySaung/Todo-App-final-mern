@@ -2,7 +2,7 @@
 
 // @Pages,MyPage
 // route : /jobs/my-to-do-list
-function MyPage() {
+function UserPage() {
     return (
       <>
       <h1>My To Do List</h1>
@@ -13,4 +13,4 @@ function MyPage() {
     )
   }
   
-  export default MyPage
+  export default UserPage
