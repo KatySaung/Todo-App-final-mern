@@ -3,9 +3,9 @@ import { getToken } from "./users-service";
 const BASE_URL = '/api/users';
 
 // @utilities
-// Create User
-export function createUser(userData) {
-  return sendRequest(`${BASE_URL}`, 'POST', userData);
+// Sign Up
+export function signUp(userData) {
+  return sendRequest(BASE_URL, 'POST', userData);
 }
 
 //  User Login
@@ -30,7 +30,6 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`)
 }
 
-
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
@@ -43,11 +42,13 @@ async function sendRequest(url, method = 'GET', payload = null) {
   // if statement to ensure header exists
   const token = getToken()
   if (token) {
-    options.headers = options.headers || { }
+    options.headers = options.headers || {}
+
+    // Add token to an Authorization header
+
     options.headers.Authorization = `Bearer ${token}`;
   }
   const backendResponse = await fetch(url, options);
-  // res.ok will be false if the status code set to 4xx in the controller action
   if (backendResponse.ok) return backendResponse.json();
   throw new Error('Bad Request');
 

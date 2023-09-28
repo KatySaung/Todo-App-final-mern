@@ -4,46 +4,36 @@ import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
 
-export default function UpdateUser({ setUser }) {
+export default function UpdateUser({ user, setUser }) {
 const [credentials, setCredentials] = useState({
-  email: '',
-  password: '',
-  id: usersService._id,
+  email: "",
+  id: user._id
 });
-const [error, setError] = useState('');
+const [error, setError] = useState(" ");
 
 function handleChange(evt) {
   setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-  setError('');
+  setError(" ");
 }
 
-// handleLogOut 
-const handleLogOut = () => {
-  // Delegate to the users-service
-  usersService.logOut();
-  // Update state will also cause a re-render
-  props.setUser(null);
-}
 async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await usersService.updateUser(credentials);
-      setUser(null);
+      const updateUser = await usersService.updateUser(credentials);
+      console.log(credentials)
+       setUser(updateUser);
     } catch {
-      setError('Delete Account Unsuccessful - Try Again');
+      setError('Cannot Update Account- Try Again');
     }
   }
   return (
     <div>
-   
         <form autoComplete="off" onSubmit={handleSubmit} >
           <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">UpdateUser Account</button>
+          <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
+          <button type="submit">Updated Email</button>
         </form>
-    
+        
       <p className="error-message">&nbsp;{error}</p>
     </div>
   );

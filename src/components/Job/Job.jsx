@@ -12,8 +12,6 @@ function Job() {
     }
   }
 
-  // @pages
-  // JobPostPage
   // route: /jobs
   return (
     <div>
@@ -25,7 +23,6 @@ function Job() {
           "If this isn't nice, what is?"- In memory of Andrew Doak's Uncle Alex.
         </p>
       </div>
-
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi excepturi eius labore architecto consequatur dicta amet, ipsum atque vitae, quos perferendis ea magnam, distinctio assumenda iusto molestiae cumque saepe a.</p>
       <button onClick={handleCheckToken}>Check Log In Expiration</button>
     </div>

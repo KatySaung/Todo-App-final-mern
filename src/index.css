@@ -1,10 +1,13 @@
 /* CSS Custom Properties */
-/* Part2: Add CSS to index.css */
 :root {
-  --white:white;
-  --tomato: var(--tomato);
-  --black: var(--black);
-
+  --white: #FFFFFF;
+  --tan-1: #f6fbfb;
+  --tan-2: #dde3e7;
+  --tan-3: #d1dee2;
+  --tan-4: #aed1d3;
+  --blue: #007Ff7;
+  --text-light: #968c84;
+  --text-dark: #615954;
 }
 
 *, *:before, *:after {
@@ -12,19 +15,36 @@
 }
 
 body {
-
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d6d6e0;
-  background-image: url("body-bg.jpg");
-  background-size: cover;
+  background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
 }
 
 code {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  height: 100%;
+}
+
+.align-ctr {
+  text-align: center;
+}
+
+.align-rt {
+  text-align: right;
+}
+
+.smaller {
+  font-size: smaller;
 }
 
 .flex-ctr-ctr {
@@ -48,32 +68,33 @@ code {
 .section-heading {
   display: flex;
   justify-content: space-around;
-  align-items: right;
-  background-color: var(--black);
+  align-items: center;
+  background-color: var(--tan-1);
   color: var(--text-dark);
-  border: .1vmin solid var(--black);
+  border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
-  font-size: 5vmin;
+  font-size: 2vmin;
 }
 
 .form-container {
   padding: 3vmin;
-  background-color: var(--tomato);
+  background-color: var(--tan-1);
+  border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
 
 p.error-message {
-  color: var(--black);
+  color: var(--blue);
   text-align: center;
 }
 
 form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.0vmin;
-
+  grid-template-columns: 1fr 3fr;
+  gap: 1.25vmin;
+  color: var(--text-light);
 }
 
 label {
@@ -83,29 +104,29 @@ label {
 }
 
 input {
-  padding: 2vmin;
+  padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--black);
-  border-radius: 1.0vmin;
+  border: .1vmin solid var(--tan-3);
+  border-radius: .5vmin;
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
 input:focus {
-  border-color: var(--black);
+  border-color: var(--blue);
 }
 
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--black);
-  background-color: var(white);
+  color: var(--white);
+  background-color: var(--blue);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(white);
+  border: .1vmin solid var(--tan-2);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
@@ -123,11 +144,10 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(white);
+  background-color: var(--tan-4);
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-  background-color: red;
 }

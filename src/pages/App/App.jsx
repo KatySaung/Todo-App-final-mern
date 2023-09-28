@@ -1,13 +1,13 @@
 import './App.css'
 import { useState } from 'react'
-import { Routes, Route  } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
-import NavBar from "../../components/NavBar/NavBar"
-import JobPostPage from '../JobPostPage/JobPostPage.jsx'
-import MyPage from '../MyPage/MyPage.jsx'
-import DeletePage from '../DeletePage/DeletePage'
-import LogInPage from '../LogInPage/LogInPage.jsx'
-import UpdatePage from "../UpdatePage/UpdatePage"
+import JobPage from "../JobPage/JobPage.jsx"
+import AuthPage from "../AuthPage/AuthPage.jsx"
+import NavBar from "../../components/NavBar/NavBar.jsx"
+import UpdateUserPage from "../UpdateUserPage/UpdateUserPage.jsx"
+import DeletePage from "../DeletePage/DeletePage.jsx"
+import ToDoPage from '../ToDoPage/ToDoPage'
 
 {/* put Main here if want it visible on the page at all times */ }
 {/* Main and Routes are only available when the user is logged in */ }
@@ -22,15 +22,14 @@ function App() {
             {/* Main and Routes are only available when the user is logged in */}
             <NavBar user={user} setUser={setUser} />
             <Routes>
-              <Route path="/" element={<LogInPage />} />
-              <Route path="/myaccount" element={<MyPage />} />
-              <Route path="/login" element={<JobPostPage />} />
-              <Route path="/update" element={<UpdatePage />} />
-              <Route path="/delete" element={<DeletePage user={user} setUser={setUser} />} />
+              <Route path="/login" element={<ToDoPage />} />
+              <Route path="/login/jobpage" element={<JobPage />} />
+              <Route path="/login/account" element={<UpdateUserPage user={user} setUser={setUser} />} />
+              <Route path="/login/account/delete" element={<DeletePage user={user} setUser={setUser} />} />
             </Routes>
           </>
           :
-          <LogInPage setUser={setUser} />
+          <AuthPage setUser={setUser} />
       }
     </main>
   )

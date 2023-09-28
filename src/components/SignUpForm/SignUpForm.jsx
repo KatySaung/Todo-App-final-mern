@@ -1,9 +1,9 @@
 import { Component } from "react";
-import { createUser } from "../../utilities/users-service";
+import { signUp } from "../../utilities/users-service";
 
 
 // use the class field approach(can also use constructor field approach)
-export default class CreateUser extends Component {
+export default class SignUp extends Component {
     state = {
         name: '',
         email: '',
@@ -12,9 +12,7 @@ export default class CreateUser extends Component {
         error: ''
     };
 
-    // The object passed to setState is merged with the current state object
-    // The handleChange method needs to go below the state and above the render.
-    // This allows the user to type into the texboxes(make changes to the form fields)
+// handleChange method for user to type in form fields
     handleChange = (evt) => {
         this.setState({
           [evt.target.name]: evt.target.value,
@@ -22,17 +20,14 @@ export default class CreateUser extends Component {
         });
       };
 
-// handleSubmit method
-// LIFO in this callstack,the handleSubmit is the first into the stack
-// The LIFO order callstack, every call function has to be resolved before coming back to the first one: handleSubmit,users-service.js,usersAPI.js)
-// payload of the JSON Web Token (JWT)
+// handleSubmit method. LIFO
 handleSubmit = async (evt) => {
     evt.preventDefault( );
     try {
         const formData = {...this.state}
         delete formData.error; 
         delete formData.confirm;
-        const user = await createUser(formData)
+        const user = await signUp(formData)
         this.props.setUser(user)
     } catch (err) {
         this.setState({error: "Sign Up Failed - Try Again"})
@@ -52,7 +47,7 @@ handleSubmit = async (evt) => {
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
                     <label>Confirm</label>
                     <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-                    <button type="submit" disabled={disable}>CREATE NEW USER ACCOUNT</button>
+                    <button type="submit" disabled={disable}>SIGN UP</button>
                 </form>
             </div>
             <p className="error-message">&nbsp;{this.state.error}</p>

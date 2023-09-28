@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router( );
-const usersCtrl = require("../../controllers/api/UserController.cjs");
-const ensureLoggedIn = require("../../config/ensureLoggedIn.cjs")
+const jobsCtrl = require("../../controllers/api/JobController.cjs")
+
 
 
 // Put API test routes here, before the "catch all" route 
@@ -10,15 +10,15 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn.cjs")
 router.get('/', (req, res) => {
     res.json({message:"Create Job Posts"})
   });
-  app.post('/', (req, res) => {
+router.post('/', (req, res) => {
     res.json({message:"Read Job Posts"})
   });
-  app.put('/:id', (req, res) => {
+ router.put('/:id', (req, res) => {
     res.json({message:"Update Job Posts"})
   });
-  app.delete('/:id', (req, res) => {
+ router.delete('/:id', (req, res) => {
     res.json({message:"Delete Job Posts"})
   });
 
-//   module.exports = router;  //ALREADY exporting router for userRoutes??
+  module.exports = router;  
   

@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose")
 
 // @models
 // Schema for All Job Posts
-const jobPostSchema = new Schema(
+const jobSchema = new Schema(
     {
         company: {
             type: String,
@@ -37,4 +37,4 @@ const jobPostSchema = new Schema(
     }
 );
 
-module.exports = model("JobPost", jobPostSchema);
+module.exports = model("Job", jobSchema);

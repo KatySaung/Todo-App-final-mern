@@ -4,28 +4,26 @@ import * as userService from "../../utilities/users-service"
 
 // @components>NavBar.jsx
 // Nav Links here
-// DO NOT USE anchor tags because of the refresh. So need to import link from react and use link tags. 
- // Delegate to the users-service
-// Update state will also cause a re-render
-function NavBar( props ) {
+function NavBar(props) {
   const handleLogOut = () => {
     userService.logOut();
     props.setUser(null);
   }
 
   return (
-<>
-<header id="header">
-<h1>Welcome, {props.user.name} !</h1>
-<nav id="nav-bar">
-  <ul>
-      <li><Link to="/myaccount">{props.user.name}'s To Do List</Link></li>
-      <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
-      <li><Link to="/delete">Delete Account</Link></li>
+
+    <nav>
+      <h1>Welcome, {props.user.name} !</h1>
+      <ul>
+        <li><Link to="/login">{props.user.name}'s To Do List</Link></li>
+        <li><Link to="/login/jobpage">Job Page</Link></li>
+        <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
       </ul>
-      </nav>
-</header>
-</>
+      <ul>
+        <li><Link to="/login/account/delete">Delete Account</Link></li>
+        <li><Link to="/login/account">Update Account</Link></li>
+      </ul>
+    </nav>
   )
 }
 

@@ -6,16 +6,16 @@ const bcrypt = require("bcrypt")
 // Users
  // async functions: create, login,checkTokin pass to routes
 module.exports = {  
-    create,
+    signUp,
     login,
-    update,
+    updateUser,
     deleteUser,
     checkToken,
 };
 
 // Create User
 // controller function so it accepts parameters req, res
-async function create(req, res) {
+async function signUp(req, res) {
     try {
         const user = await User.create(req.body)
         const token = createJWT(user)
@@ -39,17 +39,15 @@ async function login(req, res) {
 }
 
 // Update User Account 
-async function update(req, res) {
+async function updateUser(req, res) {
     try {
-        const user = await User.findOneAndUpdate({ _id: req.params.id })
-        console.log("User Account successfully updated. ");
-        res.status(200).send( )
-        if (!user) throw new Error("User not Found")
-        const match = await bcrypt.compare(req.body.password, user.password)
-        if (!match) throw new Error();
-        res.json(createJWT(user));
+        const user = await User.findByIdAndUpdate(req.body.id,
+        {email: req.body.email},
+        { new: true }
+        );
+        const token = createJWT(user)
+        res.json(token)
     } catch (err) {
-        console.log(err)
         res.status(400).json("Bad Credentials")
     }
 }
@@ -57,8 +55,7 @@ async function update(req, res) {
 // Delete User Account 
 async function deleteUser(req, res) {
     try {
-        const user = await User.findByIdAndDelete(req.body.id)
-        console.log("User Account successfully deleted. ");
+        await User.findOneAndDelete({email:req.body.email});
         res.json ("Account successfully deleted.");
     } catch (err) {
         console.log(err)

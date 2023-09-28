@@ -4,8 +4,6 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
-const ensureLoggedIn = require("./config/ensureLoggedIn.cjs")
-const methodOverride = require("method-override");
 
 const app = express( );
 
@@ -15,17 +13,19 @@ const app = express( );
 // giving app middleware function to fire every single request.
 app.use(logger('dev'));
 app.use(express.json( ));
-app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(require("./config/checkToken.cjs"));
 
 
 
   // Router setup
-  const userRouter = require("./routes/api/userRoutes.cjs");
-  app.use('/api/users', userRouter);
+  const users = require("./routes/api/users.cjs");
+  app.use('/api/users', users);
 
-  
+  app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  });
+
 
   const PORT = process.env.PORT || 3001;
 

@@ -6,14 +6,13 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn.cjs")
 
 // CRUD functions user account
 // Create new User Account Login route
-router.post("/", usersCtrl.create)
+router.post("/", usersCtrl.signUp)
 
 // To login page
 router.post("/login",usersCtrl.login);
 
-
 // Update User Account Login 
-router.put("/", usersCtrl.update)
+router.put("/", usersCtrl.updateUser)
  
 // Delete User Account Login 
 router.delete("/",usersCtrl.deleteUser);
