@@ -31,9 +31,7 @@ const userSchema = new Schema({
     }
 });
 
-// How to hash the password
-// checking if user doc running function is modified, if not modified than to next.
-// .hash is a promise so needed to await it, and encrypted (encrypted data salt) it with the SALT_ROUNDS
+// hash the password
 userSchema.pre('save', async function(next) {
     // 'this' is the user doc
     if (!this.isModified('password')) return next( );

@@ -1,25 +1,24 @@
 import { getToken } from "./users-service";
 
-
 const BASE_URL = '/api/users';
 
 // @utilities
-// Export Create User
+// Create User
 export function signUp(userData) {
   return sendRequest(BASE_URL, 'POST', userData);
 }
 
-// Export Function User Login
+//  User Login
 // credentials is sent back to the user request
 export function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
-// Export Function User Update
+// User Update
 // credentials is sent back to the user request
-export function update(credentials) {
+export function updateUser(credentials) {
   return sendRequest(`${BASE_URL}`, 'PUT', credentials);
 }
-// Export Function User Delete
+// User Delete
 // credentials is sent back to the user request
 export function deleteUser(credentials) {
   return sendRequest(`${BASE_URL}`, 'DELETE', credentials);
@@ -35,11 +34,6 @@ export function checkToken() {
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
-  // Fetch accepts an options object as the 2nd argument
-  // used to include a data payload, set headers, etc.
-  // Payload is stringified into the request body
-  // fetch global function https://developer.mozilla.org/en-US/docs/Web/API/fetch
-  // Authorization is part of headers, so that is why it is not part of the below with fetch.
   const options = { method };
   if (payload) {
     options.headers = { 'Content-Type': 'application/json' };
@@ -49,12 +43,7 @@ async function sendRequest(url, method = 'GET', payload = null) {
   // if statement to ensure header exists
   const token = getToken()
   if (token) {
-    options.headers = options.headers || {}
-
-    // Add token to an Authorization header
-    // JWT sent to server with AJAX request
-    // Prefacing with 'Bearer' is recommended in the HTTP specification
-    // TOKEN HAS TO BE SENT LIKE BELOW WITH THE SPACE BEFORE BEARER
+    options.headers = options.headers || { }
     options.headers.Authorization = `Bearer ${token}`;
   }
   const backendResponse = await fetch(url, options);

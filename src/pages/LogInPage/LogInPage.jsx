@@ -2,14 +2,13 @@ import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import LoginForm from "../../components/LoginForm/LogInForm"
 import DeleteForm from "../../components/DeleteForm/DeleteForm"
 
-
-// WK14D1: Part 2:
-// Main Page Auth Page with user set to null in App.jsx
-function AuthPage(props) {
+// @ route /jobs/login
+// Login Page
+function LogInPage(props) {
   return (
     <main>
       <h1>SEI Job Search</h1>
-      <h2>To Do App</h2>
+      <h2>LogIn Page</h2>
       <SignUpForm setUser={props.setUser} />
       <LoginForm setUser={props.setUser} />
       <DeleteForm setUser={props.setUser} />
@@ -17,4 +16,4 @@ function AuthPage(props) {
   )
 }
 
-export default AuthPage
+export default LogInPage

@@ -1,14 +1,12 @@
 /* CSS Custom Properties */
 /* Part2: Add CSS to index.css */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #f6fbfb;
-  --tan-2: #dde3e7;
-  --tan-3: #d1dee2;
-  --tan-4: #aed1d3;
-  --blue: #007Ff7;
-  --text-light: #968c84;
-  --text-dark: #615954;
+
+  --gray: grayscale;
+  --white:white;
+  --tomato: var(--tomato);
+  --black: var(--black);
+
 }
 
 *, *:before, *:after {
@@ -16,36 +14,19 @@
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: whitesmoke;
+  background-color: #d6d6e0;
+  background-image: url("body-background.jpg");
+  background-size: cover;
   padding: 2vmin;
   height: 100vh;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-#root {
-  height: 100%;
-}
-
-.align-ctr {
-  text-align: center;
-}
-
-.align-rt {
-  text-align: right;
-}
-
-.smaller {
-  font-size: smaller;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .flex-ctr-ctr {
@@ -70,32 +51,31 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--tan-1);
+  background-color: var(--black);
   color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid var(--black);
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
-  font-size: 2vmin;
+  font-size: 5vmin;
 }
 
 .form-container {
   padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
+  background-color: var(--tomato);
   border-radius: 1vmin;
 }
 
 p.error-message {
-  color: var(--blue);
+  color: var(--black);
   text-align: center;
 }
 
 form {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1.25vmin;
-  color: var(--text-light);
+  grid-template-columns: 1fr 1fr;
+  gap: 1.0vmin;
+
 }
 
 label {
@@ -105,29 +85,29 @@ label {
 }
 
 input {
-  padding: 1vmin;
+  padding: 2vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
+  border: .1vmin solid var(--black);
+  border-radius: 1.0vmin;
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
 input:focus {
-  border-color: var(--blue);
+  border-color: var(--black);
 }
 
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--blue);
+  color: var(--black);
+  background-color: var(white);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid var(white);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
@@ -145,10 +125,11 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: var(white);
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+  background-color: red;
 }

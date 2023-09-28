@@ -1,15 +1,15 @@
-// users-service.js
-// the form data is collecting the userdata
-// this will get the token and put in localstorage(backend)
-// below with asterisk is importing everything from users-api.js
 import * as usersAPI from "./users-api"
 
+
+// users-service.js
+//Create User function
 export async function signUp (userData) {
   const token = await usersAPI.signUp(userData);
 localStorage.setItem("token", token)
   return getUser( );
-
 }
+
+// Login function
 export async function login (credentials){
   const token = await usersAPI.login(credentials);
   localStorage.setItem("token", token)
@@ -18,9 +18,8 @@ export async function login (credentials){
 
 // @utilities>users-service.js
 // Update User Login
-
-export async function update (credentials){
-  const token = await usersAPI.update(credentials);
+export async function updateUser (credentials){
+  const token = await usersAPI.updateUser (credentials);
   localStorage.setItem("token", token)
   return getUser( )
 }
@@ -32,7 +31,7 @@ export async function deleteUser (credentials){
 }
 
 // @utilities>users-services
-// getToken
+// getToken function
 export function getToken( ){
   const token = localStorage.getItem("token");
   if (!token) return null;
@@ -45,6 +44,7 @@ if (payload.exp < Date.now( ) / 1000 ) {
   return token;
 }
 
+// getUser function
 export function getUser ( ){
   const token = getToken( ) 
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
@@ -54,7 +54,7 @@ export function logOut( ){
   localStorage.removeItem("token");
 }
 
-// checkToken is returning the response from backendUser in users-api.js
+// checkToken function is returning the response from backendUser in users-api.js
 export function checkToken() {
   return usersAPI.checkToken()
     .then(dateStr => new Date(dateStr)
