@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose")
 
 const todoListSchema = new Schema({
     items: [{
-      type: { type: String, enum: ["job", "todo"]},
+      type: { type: String, enum: ["todo"]},
       content: {
         
       }

@@ -1,10 +1,11 @@
-import Todo from './Todo';
+import { useState } from 'react';
+
 
 // const props = {todos: [], addTodo: func(), completeTodo: func()}
 
 // const {todos, addTodo, completeTodo} = {todos: [], addTodo: func(), completeTodo: func()}
 
-export default function TodoList({
+export default function TodoForm({
   todos,
   addTodo,
   completeTodo,

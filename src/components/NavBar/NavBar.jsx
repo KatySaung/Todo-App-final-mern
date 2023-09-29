@@ -12,17 +12,13 @@ function NavBar(props) {
 
   return (
 
-    <nav>
+    <nav className="NavBar">
       <h1>Welcome, {props.user.name} !</h1>
-      <ul>
-        <li><Link to="/login">{props.user.name}'s To Do List</Link></li>
-        <li><Link to="/login/jobpage">Job Page</Link></li>
-        <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
-      </ul>
-      <ul>
-        <li><Link to="/login/account/delete">Delete Account</Link></li>
-        <li><Link to="/login/account">Update Account</Link></li>
-      </ul>
+        <Link to="/login">{props.user.name}'s To Do List</Link>&nbsp;&nbsp;
+        <Link to="" onClick={handleLogOut}>Log Out</Link>&nbsp;&nbsp;
+        <Link to="/login/account/delete">Delete Account</Link>&nbsp;&nbsp;
+        <Link to="/login/account">Update Account</Link>&nbsp;&nbsp;
+    
     </nav>
   )
 }

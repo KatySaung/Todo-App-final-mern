@@ -2,7 +2,6 @@ import './App.css'
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
-import JobPage from "../JobPage/JobPage.jsx"
 import AuthPage from "../AuthPage/AuthPage.jsx"
 import NavBar from "../../components/NavBar/NavBar.jsx"
 import UpdateUserPage from "../UpdateUserPage/UpdateUserPage.jsx"
@@ -15,7 +14,8 @@ function App() {
   const [user, setUser] = useState(getUser())
 
   return (
-    <main className="App">
+    <body>
+    <div className="App">
       {
         user ?
           <>
@@ -23,7 +23,6 @@ function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               <Route path="/login" element={<ToDoPage />} />
-              <Route path="/login/jobpage" element={<JobPage />} />
               <Route path="/login/account" element={<UpdateUserPage user={user} setUser={setUser} />} />
               <Route path="/login/account/delete" element={<DeletePage user={user} setUser={setUser} />} />
             </Routes>
@@ -31,7 +30,8 @@ function App() {
           :
           <AuthPage setUser={setUser} />
       }
-    </main>
+    </div>
+    </body>
   )
 }
 
