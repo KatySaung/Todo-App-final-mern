@@ -66,6 +66,11 @@ body {
 }
 .NavBar{
   background-color: wheat;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
 }
 /* .form-container {
   padding: 3vmin;

@@ -12,6 +12,7 @@ function NavBar(props) {
 
   return (
 
+
     <nav className="NavBar">
       <h1>Welcome, {props.user.name} !</h1>
         <Link to="/login">{props.user.name}'s To Do List</Link>&nbsp;&nbsp;
