@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose")
 
-// @models
-// Schema for All Job Posts
-const todoSchema = new Schema(
+
+// Schema for To Do 
+const todosSchema = new Schema(
     {
         content: {
             type: String,
@@ -20,4 +20,4 @@ const todoSchema = new Schema(
         },
 );
 
-module.exports = model("Todo", todoSchema);
+module.exports = model("Todos", todosSchema);
