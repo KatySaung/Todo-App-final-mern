@@ -1,11 +1,11 @@
-import sendRequest from "../utilities/send-request"
+import sendRequest from "../utilities/send-request";
 const BASE_URL = '/api/todos';
 
 // NEED TO FIX FUNCTIONS
 // @utilities
 //Create todo
-export function Todo(newtodo) {
-  return sendRequest(BASE_URL, 'POST', newtodo);
+export function Todo(todoId) {
+  return sendRequest(`${BASE_URL}/login/create${todoId}`, 'POST');
 }
 
 // Read All todos
@@ -21,8 +21,8 @@ export function ShowTodo(id) {
 }
 
 //Update todo
-export function EditTodoText( ) {
-  return sendRequest(`${BASE_URL}`, 'PUT');
+export function EditTodoText( editId) {
+  return sendRequest(`${BASE_URL}/login/:id/show`, 'PUT', { editId });
 }
 
 // Delete todo
@@ -33,7 +33,6 @@ export function DeleteTodo( ) {
 // checkToken
 // not sending any data
 export function checkToken( ) {
-  return sendRequest(`${BASE_URL}/check-token`)
+  return sendRequest(`${BASE_URL}/check-token`);
 }
-
 

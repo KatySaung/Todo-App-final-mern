@@ -15,7 +15,8 @@ function NavBar(props) {
 
     <nav className="NavBar">
       <h1>Welcome, {props.user.name} !</h1>
-        <Link to="/login">{props.user.name}'s To Do List</Link>&nbsp;&nbsp;
+        <Link to="/">{props.user.name}'s Todo List</Link>&nbsp;&nbsp;
+        <Link to="/login">{props.user.name}'s New Todo</Link>&nbsp;&nbsp;
         <Link to="" onClick={handleLogOut}>Log Out</Link>&nbsp;&nbsp;
         <Link to="/login/account/delete">Delete Account</Link>&nbsp;&nbsp;
         <Link to="/login/account">Update Account</Link>&nbsp;&nbsp;

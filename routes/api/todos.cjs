@@ -7,32 +7,32 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn.cjs")
 // Test:  /api/todos,
 // INDUCES: 7 restful routes for CRUD
 // Index: Show ALL todos of model
-// HELP: GET ROUTES NOT WORKING
+//WORKING
 router.get("/login/index", todosCtrl.findAllTodos)
 
 // New: Show form to create a new todo
 // HELP: NOT WORKING 
-router.get("/login/new", todosCtrl.showTodo);
+router.get("/login/new", todosCtrl.show);
 
 // Delete: Remove todo from db
 // Working
 router.delete("/login/:id/delete", todosCtrl.deleteTodo)
  
 // Update: Updates the todo from Edit form
-// Working
+// HELP: NOT WORKING
 router.put("/login/:id/update", todosCtrl.editTodoText);
 
 // Create: Creates a new todo from the new form
-// Working
+// HELP: NOT WORKING
 router.post("/login/create", todosCtrl.todo)
 
 // Edit: Show form to update a todo
 // HELP: NOT WORKING
-router.get("/login/:id/edit", todosCtrl.showTodo);
+router.get("/login/:id/edit", todosCtrl.show);
 
 // Show: Show a todo
 // HELP: NOT WORKING
-router.get("/login/:id/show", todosCtrl.showTodo)
+router.get("/login/:id/show", todosCtrl.show)
 
 
 

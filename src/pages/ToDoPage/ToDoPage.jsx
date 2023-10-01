@@ -2,33 +2,39 @@ import "./todopage.css"
 import { useState } from "react"
 import * as todosAPI  from "../../utilities/todos-api"
 
-// will throw error,white screen in browser if import todos api from utilities
-// ERRORS WITH .text
-// Todo page not showing elements
 
-function ToDoPage({todo,setTodo}) {
+// HELP: HOW TO USE import todosAPI from utilities??
+// HELP: DO I NEED TO setTODO in ToDoPage function?
+function ToDoPage({ }) {
   const[todos, setTodos] = useState([ ])
   const [showInput, setShowInput] = useState(false);
   const handleClick = ( ) => {
     setShowInput(!showInput);
   };
   const handleDelete = () => {
-    props.deleteTodo(todo._id);
+    deleteTodo(todos._id);
   };
 
   function handleChange(evt) {
     setChecked(evt.target.checked);
    }
-  // Ternary, use map to check if there are any todos, if zero todos display no todos else add a todo.
+
   // a onChange and e.target.value will wait for any changes in in the input field.
+  // added mouseOver event to input field of Todo.
+
+  // HELP: DELETE AND ADD TO DO NOT WORKING, NO TEXTBOX FIELD FOR ADD TO DO
+  // HELP: Completed checkbox function to mark a todo, not sure if marking added todo as complete.
   return (
     
  <li>
       <div>
-       <h1>TodoPage</h1>
-        <button type = "button"onClick={handleClick}>Add Todo!</button>
-        <input type="text"placeholder="Enter your todo"onMouseOver={handleClick}
+       <h1>Add A Todo</h1>
+       <form action="/login" method="POST">
+       Title: <input type="text"placeholder="Name of the Todo"onMouseOver={handleClick}
         />
+        Task:<textarea rows="4" cols="30" placeholder="Type Your Todo here :)"/><br />
+        <button type = "button"onClick={handleClick}>Add Todo!</button>
+       </form>
       </div>
       <label>
         Complete:
@@ -41,35 +47,3 @@ function ToDoPage({todo,setTodo}) {
 }
 export default ToDoPage
 
-
-// function todo
-/*
-
-  async function getTodo() {
-    try {
-      const showTodo = await getTodo();
-      setTodo(showTodo)
-    } catch (err) {
-      console.log(err)
-    }
-    useEffect(() => {
-      getshowTodo();
-    }, [ ]);
-  }
-
-*/ 
-
-
-// return
-/*
-    <>
-    <h1>ToDoPage</h1>
-    <ul>{Todo.map((showTodo) => {
-        return<li>(showTodo.content.date)</li>
-      })}
-      
-      </ul>
-      </>
-  )
-
-*/ 

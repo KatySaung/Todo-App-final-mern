@@ -4,6 +4,7 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+const ensureLoggedIn= require("./config/ensureLoggedIn.cjs")
 
 const app = express( );
 
@@ -26,6 +27,12 @@ app.use(require("./config/checkToken.cjs"));
 const todos = require("./routes/api/todos.cjs");
 app.use('/api/todos', todos);
 
+
+ // ensureLoggedIn makes all  /todo routes protected by login
+app.use('/api/todos', ensureLoggedIn, require("./routes/api/todos.cjs"))
+
+
+// catcha all
   app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });

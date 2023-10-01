@@ -36,7 +36,7 @@ export default function Delete({ user, setUser }) {
   return (
     <div>
       <div className="form-container">
-        <div class="wrapper">
+        <div className="wrapper">
           <form autoComplete="off" onSubmit={handleSubmit} >
             <label>Email</label>
             <input type="text" placeholder="Enter current email here..." name="email" value={credentials.email} onChange={handleChange} required />
