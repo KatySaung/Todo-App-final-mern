@@ -4,6 +4,10 @@ const { Schema, model } = require("mongoose")
 // Schema for To Do 
 const todoSchema = new Schema({
     
+        name: {
+            type: String,
+            required: true,
+        },
         text: {
             type: String,
             required: true,

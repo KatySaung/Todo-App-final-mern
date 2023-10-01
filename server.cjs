@@ -19,13 +19,10 @@ app.use(require("./config/checkToken.cjs"));
 
 
 
-  // Router setup
-  // Backend: API route test
+  // Backend Router setup 
+  // (see: Utilities> todos-api)
   const users = require("./routes/api/users.cjs");
   app.use('/api/users', users);
-
-const todos = require("./routes/api/todos.cjs");
-app.use('/api/todos', todos);
 
 
  // ensureLoggedIn makes all  /todo routes protected by login
