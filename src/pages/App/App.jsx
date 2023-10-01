@@ -6,15 +6,15 @@ import AuthPage from "../AuthPage/AuthPage.jsx"
 import NavBar from "../../components/NavBar/NavBar.jsx"
 import UpdateUserPage from "../UpdateUserPage/UpdateUserPage.jsx"
 import DeletePage from "../DeletePage/DeletePage.jsx"
-import ToDoPage from '../ToDoPage/ToDoPage'
+import ToDoPage from "../ToDoPage/ToDoPage.jsx"
 
 {/* put Main here if want it visible on the page at all times */ }
 {/* Main and Routes are only available when the user is logged in */ }
 function App() {
   const [user, setUser] = useState(getUser())
-
+  
   return (
-    <body>
+ 
     <div className="App">
       {
         user ?
@@ -31,7 +31,6 @@ function App() {
           <AuthPage setUser={setUser} />
       }
     </div>
-    </body>
   )
 }
 

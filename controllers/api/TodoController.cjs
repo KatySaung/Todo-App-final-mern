@@ -1,36 +1,38 @@
-const Todo= require("../../models/TodoSchema.cjs")
+const Todo= require("../../models/Todo.cjs")
 
-// controller for todos
-// const todo
+
+// Controller: CRUD functions for todos
 // include date and time search for todos here and schema?
 
 module.exports = {  
-    todos,
-    addTodo,
-    completeTodo,
+    todo,
+    showTodo,
+    findAllTodos,  //findTodo route not working in postman tests
+    completeTodo, //Help:what api route for completeTodo??
     editTodoText,
     deleteTodo,
 };
 
-// CRUD functionality
 // Create todo
-async function todos(req, res) {
+// (see todo ROUTE: Create)
+// NOT WORKING
+async function todo(req, res) {
     try {
-        const todo = await todos.create(req.body)
+        const todo = await Todo.create(req.body)
         res.json ("Todo successfully created.");
     } catch (err) {
         res.status(400).json(err);
     }
 }
 
-
-// Read todo 
-// Locate todo 
-async function addTodo(req, res) {
+// Read function for ALL todos 
+// (see todo ROUTE: Index(Show All) )
+// @get route: NOT WORKING!!! HELP
+async function findAllTodos(req, res) {
     try {
-        const todo = await addTodo.findOne({ content: req.body.content })
+        const todo = await Todo.find({ })
         if (!todo) throw new Error("Todo not Found")
-        const match = await addTodo.compare(req.body.content, todo.content)
+        const match = await Todo.compare(req.body.content)
         if (!match) throw new Error("No matching Todo's stored. Please create a new Todo");
         res.json ("Todo successfully located.");
     } catch (err) {
@@ -39,9 +41,39 @@ async function addTodo(req, res) {
     }
 }
 
+// Read function for a single todo 
+// (see todo ROUTE: New,Edit,Show by :id )
+// @get route: NOT WORKING!!! HELP
+async function showTodo(req, res) {
+    try {
+        const todo = await Todo.findById({ content: req.params.content})
+        if (!todo) throw new Error("Todo not Found")
+        const match = await Todo.compare(req.params.id, todo.content)
+        if (!match) throw new Error("No matching Todo's stored. Please create a new Todo");
+        res.json ("Todo successfully located.");
+    } catch (err) {
+        console.log(err)
+        res.status(400).json("Bad Credentials")
+    }
+}
 
-// Update todo
-async function updateTodo(req, res) {
+// Complete todo is BOOLEAN. NEED HELP??
+// IS ANOTHER FUNCTION NEEDED FOR COMPLETE TODO?
+// Do I NEED A ROUTE in routes>api>todos
+async function completeTodo(req, res) {
+    try {
+        await Todo.findOne({content:req.params.id});
+        res.json ("Todo successfully completed.");
+    } catch (err) {
+        console.log(err)
+        res.status(400).json("Bad Credentials")
+    }
+}
+
+
+// Update function for todo 
+// (see todo ROUTE: Update )
+async function editTodoText(req, res) {
     try {
         const todo = await Todo.findByIdAndUpdate(req.body.id,
         {content: req.body.content},
@@ -53,8 +85,8 @@ async function updateTodo(req, res) {
     }
 }
 
-
-// Delete todo
+// Delete function for todo 
+// (see todo ROUTE: Delete)
 async function deleteTodo(req, res) {
     try {
         await Todo.findOneAndDelete({content:req.body.content});

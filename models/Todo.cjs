@@ -2,8 +2,8 @@ const { Schema, model } = require("mongoose")
 
 
 // Schema for To Do 
-const todosSchema = new Schema(
-    {
+const todoSchema = new Schema({
+    
         content: {
             type: String,
             required: true,
@@ -12,12 +12,13 @@ const todosSchema = new Schema(
             type: Date,
             default: Date.now,
         },
-    
-    sortOrder: Number
-},
-        {
-            timestamps: true,
-        },
+        
+        sortOrder: Number
+    },
+    {
+        timestamps: true,
+    }
+
 );
 
-module.exports = model("Todos", todosSchema);
+module.exports = model("Todo", todoSchema);

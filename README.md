@@ -3,6 +3,8 @@
 
 ### Technologies Used:
 <!-- A list of all technologies, libraries, APIs, etc. used in the project. -->
+##### npm react icons https://www.npmjs.com/package/react-icons 
+
 #### Frontend
 - React
 - NodeJS

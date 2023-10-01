@@ -19,7 +19,6 @@ function NavBar(props) {
         <Link to="" onClick={handleLogOut}>Log Out</Link>&nbsp;&nbsp;
         <Link to="/login/account/delete">Delete Account</Link>&nbsp;&nbsp;
         <Link to="/login/account">Update Account</Link>&nbsp;&nbsp;
-    
     </nav>
   )
 }

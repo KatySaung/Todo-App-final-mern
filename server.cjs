@@ -19,8 +19,12 @@ app.use(require("./config/checkToken.cjs"));
 
 
   // Router setup
+  // Backend: API route test
   const users = require("./routes/api/users.cjs");
   app.use('/api/users', users);
+
+const todos = require("./routes/api/todos.cjs");
+app.use('/api/todos', todos);
 
   app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));

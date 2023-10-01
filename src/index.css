@@ -5,9 +5,10 @@
 
 /* NEED TO FIX H1, IT IS PUSHING FORM DOWN */
 h1{
-  background-color: wheat;
+  background-color: none;
   text-align: center;
   padding: 15px;
+  color: white;
 }
 
 body {
@@ -16,7 +17,9 @@ body {
   height: 100vh;
   width: 100%;
   background-image: url(images/app-bg.jpg);
+  /* background-image: url(images/app-bg.jpg), url(images/body-bg.jpg); */
   background-size: cover;
+  /* background-blend-mode: difference; */
   background-repeat: no-repeat;
   background-position:  center center;
   background-color: wheat;
@@ -96,6 +99,7 @@ label {
 
 p{
   position: center;
+  color: white;
 }
 /* input fields */
 input {
