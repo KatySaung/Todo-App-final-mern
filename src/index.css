@@ -3,7 +3,6 @@
   box-sizing: border-box;
 }
 
-/* NEED TO FIX H1, IT IS PUSHING FORM DOWN */
 h1{
   background-color: none;
   text-align: center;
@@ -29,12 +28,14 @@ body {
  display: grid;
  place-items: center;
 
+
 }
 .form-container {
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+
  
 }
 
@@ -66,6 +67,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
+
 }
 
 /* error message */
@@ -75,11 +79,6 @@ p.error-message:active {
   background-color: aqua;
 
 }
-
-
-
-/* pseudo-element */
-
 
 /* form */
 form {
@@ -137,3 +136,4 @@ button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
   background-color: gray;
 }
+

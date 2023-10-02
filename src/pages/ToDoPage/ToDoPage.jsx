@@ -1,57 +1,78 @@
-import "./todopage.css"
-import { useState } from "react"
+import { useState } from "react";
 import * as todosAPI from "../../utilities/todos-api"
 
-
-// HELP: HOW TO USE import todosAPI from utilities??
-// HELP: DO I NEED TO setTODO in ToDoPage function?
-
 // ToDoPage: Add a todo, Complete checkbox a todo with list, Delete a todo button.
+// bring in CRUD functions of todo from TodoForm here
+// handle the changes in state of the input,button, checkbox here
+function ToDoPage(props) {
 
-function ToDoPage({ }) {
-  const [todos, setTodos] = useState([])
+  // const [todo, setTodo] = useState({
+
+  // })
+
+  // textbox function
   const [showInput, setShowInput] = useState(false);
   const handleClick = () => {
     setShowInput(!showInput);
-  };
-  const handleDelete = () => {
-    deleteTodo(todos._id);
+    console.log("Text box on ToDoPage")
   };
 
-  function handleChange(evt) {
-    setChecked(evt.target.checked);
+  // function for Edit button
+  const handleEdit = (evt) => {
+    evt.preventDefault();
+    props.editTodo(props.todo.id, evt);
+    console.log("Edit button is clicked")
+  };
+
+  // // function for Delete button
+  const handleDelete = () => {
+    props.deleteTodo(props.todo.id);
+    console.log("Delete button is clicked")
+  };
+
+  // function for Add a todo button(submit todo)
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log("Submit button is clicked");
   }
 
-  // a onChange and e.target.value will wait for any changes in in the input field.
-  // added mouseOver event to input field of Todo.
-
-  // HELP: DELETE AND ADD TO DO NOT WORKING, NO TEXTBOX FIELD FOR ADD TO DO
-  // HELP: Completed checkbox function to mark a todo, not sure if marking added todo as complete.
+  // Button: Add a Todo
+  // DO I NEED if statement after button is pressed to edit text and handle change in state? 
   return (
-
-    // Add to do
     <li>
       <div>
-        <h1>Add A Todo</h1>
+        <h1>Add Todo</h1>
+
         <form action="/login" method="POST">
           Title: <input type="text" placeholder="Name of the Todo" onMouseOver={handleClick}
           />
           Task:<textarea rows="4" cols="30" placeholder="Type Your Todo here :)" /><br />
-          <button type="button" onClick={handleClick}>Add Todo!</button>
+          <label>
+            {/* 
+            function handleTaskCompleted(evt){
+              set
+            }
+            Is Task Completed:
+            <input style={{ display: showInput ? "block" : "none" }} 
+            type="checkbox" checked={props.todo.taskCompleted} 
+            onChange={handleTaskCompleted} 
+            /> */}
+          </label>
+          Date:<input type="number" />
+          <button type="submit" onClick={handleSubmit}
+          // if (evt.button ==="clicked") {addTodo(evt)}; <---NEED IF STATEMENT BUTTON EVT?
+          >Add Todo!</button>
+
+
+          {/* Edit a todo. Edit button. Button is now on ToDoListPage*/}
+          <button onClick={handleEdit}>Edit</button>
+
+          {/* Delete a todo. Delete button.Button is now on ToDoListPage */}
+          <button onClick={handleDelete}>Delete</button>
         </form>
       </div>
-      <div>
-
-        {/* Completed tasks list. Checkbox.*/}
-        <label>
-          Completed Tasks:
-          <input style={{ display: showInput ? "block" : "none" }} type="checkbox" onChange={handleChange} />
-        </label>
-
-        {/* Delete a todo. Delete button */}
-        <button onClick={handleDelete}>Delete A Todo</button>
-      </div>
     </li>
+
   );
 }
 export default ToDoPage

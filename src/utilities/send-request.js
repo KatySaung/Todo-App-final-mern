@@ -1,3 +1,4 @@
+import { getToken } from "./users-service";
 
 export default async function sendRequest(url, method = 'GET', payload = null) {
   // when first created this async function was in utilities>users-api.js

@@ -3,11 +3,11 @@ const Todo = require("../../models/Todo.cjs")
 
 // Controller: Backend CRUD functions for todos
 // include date and time search for todos here and schema?
-
+// get todo data from db and send back
 module.exports = {
     todo,
     show,
-    findAllTodos,  //findTodo route not working in postman tests
+    findAllTodos,  
     editTodoText,
     deleteTodo,
 };
@@ -15,7 +15,6 @@ module.exports = {
 // Create todo
 // (see todo ROUTE(POST): Create)
 // WORKING
-// STOPPED WORKING received postman error "msg": "E11000 duplicate key error collection: todo-app.todos index: content_1 dup key: { content: null }"
 async function todo(req, res) {
     try {
         // if statement
@@ -41,7 +40,6 @@ async function findAllTodos(req, res) {
 
 // Read function for a single todo 
 // (see todo ROUTE(GET): New,Edit,Show by :id )
-// NOT WORKING!!! HELP
 async function show(req, res) {
     try {
         const todo = await Todo.findById(req.params.id);
@@ -53,8 +51,6 @@ async function show(req, res) {
 
 // Update function for todo 
 // (see todo ROUTE(PUT): Update )
-//HELP!!!: NOT WORKING IF set await= to const todo and res.json(todo)
-// WORKING on postman not with update button (HELP: need to display on page search todo to find todo and use update function, update button not updating from db)
 async function editTodoText(req, res) {
     try {
         await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true});
@@ -66,8 +62,6 @@ async function editTodoText(req, res) {
 
 // Delete function for todo 
 // (see todo ROUTE(DELETE): Delete)
-// HELP!!!: NOT WORKING IF set await= to const todo and res.json(todo)
-// WORKING on postman not with delete button (HELP: need to display on page search todo find todo and use delete function, delete button not deleting from db)
 async function deleteTodo(req, res) {
     try {
       await Todo.findByIdAndDelete(req.params.id);

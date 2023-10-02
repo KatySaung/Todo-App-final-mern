@@ -1,4 +1,4 @@
-import './App.css'
+
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
@@ -12,11 +12,17 @@ import ToDoListPage from '../ToDoListPage/ToDoListPage.jsx'
 
 {/* put Main here if want it visible on the page at all times */ }
 {/* Main and Routes are only available when the user is logged in */ }
+
+//mapping through todos with buttons on ToDoListPage.
 function App() {
   const [user, setUser] = useState(getUser())
+  const [todoEdit, setTodoEdit] = useState(false)
+  const [todoRemove, setTodoRemove] = useState(false)
   
+
+
   return (
- 
+
     <div className="App">
       {
         user ?

@@ -1,32 +1,27 @@
 const { Schema, model } = require("mongoose")
 
-
-// Schema for To Do 
+// Schema for Todo data
+// store and retrieve data from db and use to require into other components
 const todoSchema = new Schema({
-    
-        name: {
-            type: String,
-            required: true,
-        },
-        text: {
-            type: String,
-            required: true,
-        },
-        completed: {
-            type: Boolean,
-            default: false,
-        },
-        date: {
-            type: Date,
-            default: Date.now,
-        },
-        
-        sortOrder: Number
+    text: {
+        type: String,
+        required: true,
     },
-    {
-        timestamps: true,
-    }
-
-);
+    task: {
+        type: String,
+        required: true,
+    },
+    taskCompleted: {
+        type: Boolean,
+        default: false,
+    },
+    date: {
+        type: Date,
+        default: Date.now,
+    },
+    // {
+    //      timestamps: true
+    // }, 
+})
 
 module.exports = model("Todo", todoSchema);

@@ -26,7 +26,10 @@ app.use(require("./config/checkToken.cjs"));
 
 
  // ensureLoggedIn makes all  /todo routes protected by login
-app.use('/api/todos', ensureLoggedIn, require("./routes/api/todos.cjs"))
+//  const todos = require("./routes/api/todos.cjs");
+// put back line 32, after testing.
+// app.use('/api/todos', ensureLoggedIn, require("./routes/api/todos.cjs"))
+app.use('/api/todos', require("./routes/api/todos.cjs"))
 
 
 // catcha all

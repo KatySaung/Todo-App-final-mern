@@ -1,17 +1,17 @@
 import sendRequest from "../utilities/send-request";
 const BASE_URL = '/api/todos';
 
-// NEED TO FIX FUNCTIONS
+
 // Backend Routes(need to match routes in server.cjs)
 //Create todo
 export function Todo(todoId) {
-  return sendRequest(`${BASE_URL}/login/create`, 'POST', todoId);
+  return sendRequest(`${BASE_URL}/create`, 'POST', todoId);
 }
 
 // Read All todos
 // Default Get request
-export function FindAllTodos( ) {
-  return sendRequest(`${BASE_URL}/ `, 'GET');
+export function findAllTodos( ) {
+  return sendRequest(`${BASE_URL}/show`, 'GET');
 }
 
 // Show a single todo
@@ -22,12 +22,12 @@ export function ShowTodo(id) {
 
 //Update todo
 export function EditTodoText(id, editId) {
-  return sendRequest(`${BASE_URL}/login/${id}/update`, 'PUT', editId);
+  return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', editId);
 }
 
 // Delete todo
-export function DeleteTodo(id) {
-  return sendRequest(`${BASE_URL}/${id}/delete`, 'DELETE', id);
+export function deleteTodo(id) {
+  return sendRequest(`${BASE_URL}/${id}/delete`, 'DELETE');
 }
 
 // checkToken
