@@ -17,14 +17,9 @@ function ToDoPage(props) {
     console.log("Text box on ToDoPage")
   };
 
-  // function for Edit button
-  const handleEdit = (evt) => {
-    evt.preventDefault();
-    props.editTodo(props.todo.id, evt);
-    console.log("Edit button is clicked")
-  };
 
   // // function for Delete button
+  
   const handleDelete = () => {
     props.deleteTodo(props.todo.id);
     console.log("Delete button is clicked")
@@ -62,10 +57,6 @@ function ToDoPage(props) {
           <button type="submit" onClick={handleSubmit}
           // if (evt.button ==="clicked") {addTodo(evt)}; <---NEED IF STATEMENT BUTTON EVT?
           >Add Todo!</button>
-
-
-          {/* Edit a todo. Edit button. Button is now on ToDoListPage*/}
-          <button onClick={handleEdit}>Edit</button>
 
           {/* Delete a todo. Delete button.Button is now on ToDoListPage */}
           <button onClick={handleDelete}>Delete</button>

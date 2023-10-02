@@ -42,8 +42,7 @@ function ToDoListPage() {
                                 {todo.text}
                             </p>
                             <div>
-                                {/* Buttons: Edit and Delete */}
-                                <button onClick={() => TodoEdit(todo._id)}>Edit</button>
+                                {/* Button: Delete */}
                                 <button onClick={() => handleDelete(todo._id)}>Delete</button>
                             </div>
                         </div>

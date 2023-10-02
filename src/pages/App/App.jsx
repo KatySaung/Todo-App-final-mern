@@ -8,7 +8,7 @@ import UpdateUserPage from "../UpdateUserPage/UpdateUserPage.jsx"
 import DeletePage from "../DeletePage/DeletePage.jsx"
 import ToDoPage from "../ToDoPage/ToDoPage.jsx"
 import ToDoListPage from '../ToDoListPage/ToDoListPage.jsx'
-
+import UpdateToDoForm from '../../components/UpdateToDoForm/UpdateToDoForm.jsx'
 
 {/* put Main here if want it visible on the page at all times */ }
 {/* Main and Routes are only available when the user is logged in */ }
@@ -32,6 +32,7 @@ function App() {
             <Routes>
               <Route path="/" element={<ToDoListPage />} />
               <Route path="/login" element={<ToDoPage />} />
+              <Route path="/login/id/edit" element={<UpdateToDoForm />} />
               <Route path="/login/account" element={<UpdateUserPage user={user} setUser={setUser} />} />
               <Route path="/login/account/delete" element={<DeletePage user={user} setUser={setUser} />} />
             </Routes>
