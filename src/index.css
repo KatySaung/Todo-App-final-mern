@@ -1,5 +1,7 @@
 
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -7,7 +9,22 @@ h1{
   background-color: none;
   text-align: center;
   padding: 15px;
-  color: white;
+  color:white;
+}
+
+aside {
+  width: 40%;
+  padding-left: 0.0rem;
+  margin-left: 0.0rem;
+  float: right;
+  box-shadow: inset 5px 0 5px -5px white;
+  font-style: italic;
+  color: black;
+}
+aside > p {
+  margin: 0.5rem;
+  color: black;
+  display: flex;
 }
 
 body {
@@ -24,13 +41,15 @@ body {
   background-color: wheat;
 }
 
-.form-container, form {
+/* .form-container, form {
  display: grid;
  place-items: center;
 
 
-}
-.form-container {
+} */
+.form-container,form {
+  display: grid;
+  place-items: center;
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
