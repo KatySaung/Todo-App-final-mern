@@ -18,7 +18,7 @@ function App() {
   const [user, setUser] = useState(getUser())
   const [todoEdit, setTodoEdit] = useState(false)
   const [todoRemove, setTodoRemove] = useState(false)
-  
+
 
 
   return (
@@ -31,8 +31,8 @@ function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               <Route path="/" element={<ToDoListPage />} />
-              <Route path="/login" element={<ToDoPage />} />
-              <Route path="/login/id/edit" element={<UpdateToDoForm />} />
+              <Route path="/login" element={<ToDoPage user={user} />} />
+              <Route path="/todo/:id/edit" element={<UpdateToDoForm />} />
               <Route path="/login/account" element={<UpdateUserPage user={user} setUser={setUser} />} />
               <Route path="/login/account/delete" element={<DeletePage user={user} setUser={setUser} />} />
             </Routes>

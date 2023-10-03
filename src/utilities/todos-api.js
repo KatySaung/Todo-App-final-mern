@@ -4,8 +4,8 @@ const BASE_URL = '/api/todos';
 
 // Backend Routes(need to match routes in server.cjs)
 //Create todo
-export function Todo(todoId) {
-  return sendRequest(`${BASE_URL}/create`, 'POST', todoId);
+export function Todo(todo) {
+  return sendRequest(`${BASE_URL}/create`, 'POST', todo);
 }
 
 // Read All todos
@@ -13,6 +13,8 @@ export function Todo(todoId) {
 export function findAllTodos( ) {
   return sendRequest(`${BASE_URL}/show`, 'GET');
 }
+
+// removed from line 15: return sendRequest(`${BASE_URL}/show`, 'GET');
 
 // Show a single todo
 // Default Get request

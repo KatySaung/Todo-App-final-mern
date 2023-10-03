@@ -5,11 +5,11 @@ const { Schema, model } = require("mongoose")
 const todoSchema = new Schema({
     text: {
         type: String,
-        required: true,
+        // required: true,
     },
     task: {
         type: String,
-        required: true,
+        // required: true,
     },
     taskCompleted: {
         type: Boolean,
@@ -19,9 +19,13 @@ const todoSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    // {
-    //      timestamps: true
-    // }, 
-})
+   
+    // to reference the user for the objectID in the same schema
+        userID: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        }
+},{timestamps: true}
+)
 
 module.exports = model("Todo", todoSchema);

@@ -10,12 +10,7 @@ import ToDoPage from '../../pages/ToDoPage/ToDoPage.jsx';
 
 function TodoForm() {
   const [todos, setTodos] = useState([ ]);
-  useEffect(() => {
-    const savedTodos = localStorage.getItem("todos");
-    if (savedTodos && savedTodos !== "undefined" && savedTodos !== "null") {
-      setTodos(JSON.parse(savedTodos));
-    }
-  }, [ ]);
+ 
 
   //Handler function to Create a new todo.
   const addTodo = (evt) => {
@@ -67,13 +62,8 @@ function TodoForm() {
 
   return (
     <div>
-      <ToDoPage
-        todos={todos}
-        addTodo={addTodo}
-        completeTodo={completeTodo}
-        editTodoText={editTodoText}
-        deleteTodo={deleteTodo}
-      />
+      <h1>New To Do Form</h1>
+        
     </div>
   )
 

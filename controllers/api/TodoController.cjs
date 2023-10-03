@@ -17,11 +17,13 @@ module.exports = {
 // WORKING
 async function todo(req, res) {
     try {
-        // if statement
+        console.log(req.body)
+        //add a new key to this req the body object
         const todo = await Todo.create(req.body);
         res.json(todo);
     } catch (err) {
-        res.status(400).json({ msg: err.message });
+    //     res.status(400).json({ msg: err.message });
+    console.log(err)
     }
 }
 
@@ -30,8 +32,10 @@ async function todo(req, res) {
 // WORKING
 async function findAllTodos(req, res) {
     try {
-        const todo = await Todo.find().sort("date").populate("text").exec();
-        todo.sort((a, b) => a.date.sortOrder - b.date.sortOrder);
+        const todo = await Todo.find({ })
+        // .sort("date").populate("text").exec();
+        // todo.sort((a, b) => a.date.sortOrder - b.date.sortOrder);
+        console.log("show", todo)
         res.status(200).json(todo);
     } catch (err) {
         res.status(400).json({ msg: err.message });

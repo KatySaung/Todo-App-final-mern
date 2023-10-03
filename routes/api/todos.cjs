@@ -10,6 +10,7 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn.cjs")
 //WORKING
 router.get("/show", todosCtrl.findAllTodos)
 
+// removed from line 11: router.get("/show", todosCtrl.findAllTodos)
 
 // Delete: Remove todo from db
 // Working
