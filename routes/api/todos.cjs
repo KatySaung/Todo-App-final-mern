@@ -18,7 +18,7 @@ router.delete("/:id/delete", todosCtrl.deleteTodo)
  
 // Update: Updates the todo from Edit form
 // HELP: NOT WORKING
-router.put("/:id/update", todosCtrl.editTodoText);
+router.put("/", todosCtrl.editTodoText);
 
 // Create: Creates a new todo from the new form
 // WORKING

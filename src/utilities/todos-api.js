@@ -23,8 +23,8 @@ export function ShowTodo(id) {
 }
 
 //Update todo
-export function EditTodoText(id, editId) {
-  return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', editId);
+export function EditTodoText(todo) {
+  return sendRequest(`${BASE_URL}`, 'PUT', todo);
 }
 
 // Delete todo

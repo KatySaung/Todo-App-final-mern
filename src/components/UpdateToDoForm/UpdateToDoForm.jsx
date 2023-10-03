@@ -2,11 +2,11 @@
 import { useState } from 'react';
 import * as todosAPI from "../../utilities/todos-api"
 
-//ERROR Text not defined UPDATETODO NEED HELP 
 
-export default function UpdateToDoForm({ todo, setTodo }) {
+export default function UpdateToDoForm({ todo }) {
   const [credentials, setCredentials] = useState({
-   todo: "",
+  todo: "",
+  id: todo._id,
   });
   const [error, setError] = useState(" ");
 
@@ -18,11 +18,12 @@ export default function UpdateToDoForm({ todo, setTodo }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const updateTodo = await todosAPI.updateTodo(credentials);
-      console.log(credentials)
-      setUser(updateTodo);
-    } catch {
+    console.log("submitted")
+      const updateTodo = await todosAPI.EditTodoText(credentials);
+    } catch (err) {
+      console.log(err)
       setError('Cannot Update Todo- Try Again');
+
     }
   }
   return (
@@ -30,7 +31,7 @@ export default function UpdateToDoForm({ todo, setTodo }) {
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit} >
           <label>Text</label>
-          <input type="text" placeholder="Enter text..." name="text" value={text} onChange={handleChange} required />
+          <input type="text" placeholder="Enter text..." name="todo" value={credentials.todo} onChange={handleChange} required />
           <button type="submit">Update Todo</button>
         </form>
       </div>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as todosAPI from "../../utilities/todos-api"
 import { Link } from 'react-router-dom';
+import UpdateToDoForm from '../../components/UpdateToDoForm/UpdateToDoForm.jsx';
+
 
 // ToDoListPage: Show list of all todos in db
 // function for Delete button
@@ -35,16 +37,18 @@ function ToDoListPage() {
             <h1>Show All Todos</h1>
             {
             // if (todo.userId ===  user._id)
-                todos.map((todo) => {
+                todos.map((todo, index) => {
                     
                     return (
-                        <div>
+                        <div key={index} >
                             <p>
                                 {todo.task}
                                 {todo.title}
                             </p>
                             <div>
-                                <h2><Link to={`/todo/${todo._id}/edit`}>edit</Link></h2>
+                                {/* <h2><Link to={`/todo/${todo._id}/edit`}>edit</Link></h2> */}
+                                <UpdateToDoForm todo={todo} />
+
                                 {/* Button: Delete */}
                                 <button onClick={() => handleDelete(todo._id)}>Delete Todo</button>
                             </div>

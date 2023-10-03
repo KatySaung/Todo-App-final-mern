@@ -57,7 +57,7 @@ async function show(req, res) {
 // (see todo ROUTE(PUT): Update )
 async function editTodoText(req, res) {
     try {
-        await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true});
+        await Todo.findByIdAndUpdate(req.body.id, {task: req.body.todo}, { new: true});
         res.status(200).json("updated success");
     } catch (err) {
         res.status(400).json({ msg: err.message })
