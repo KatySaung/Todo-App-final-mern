@@ -8,7 +8,7 @@ function AuthPage(props) {
     <main>
       <h1>To Do App </h1>
       <aside>
-      <p> In Memory of Andrew Doak's Uncle - "My Alex, who is up in Heaven now, one of the things he found objectionable about human beings was that they so rarely noticed it when times were sweet. We could be drinking lemonade in the shade of an apple tree in the summertime, and Uncle Alex would interrupt the conversation to say, "If this isn't nice, what is?"
+      <p> In Memory of Andrew Doak's Uncle - "My Uncle Alex, who is up in Heaven now, one of the things he found objectionable about human beings was that they so rarely noticed it when times were sweet. We could be drinking lemonade in the shade of an apple tree in the summertime, and Uncle Alex would interrupt the conversation to say, "If this isn't nice, what is?"
       So I hope that you will do the same for the rest of your lives. When things are going sweetly and peacefully, please pause a moment, and then say out loud, "If this isn't nice, what is?”
 ― Kurt Vonnegut, If This Isn't Nice, What Is?: Advice for the Young
       </p>
