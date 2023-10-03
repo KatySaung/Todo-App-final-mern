@@ -13,20 +13,33 @@ h1{
 }
 
 aside {
-  width: 40%;
-  padding-left: 0.0rem;
+  width: 20%;
+  padding-top: 4.0rem;
+  padding-left: 0.5rem;
   margin-left: 0.0rem;
   float: right;
-  box-shadow: inset 5px 0 5px -5px white;
+  box-shadow: inset 5px 0 6px -5px white;
   font-style: italic;
   color: black;
+  background-color:white;
+  /* background: transparent; */
+  opacity: 0.5 ;
 }
+
+
 aside > p {
   margin: 0.5rem;
   color: black;
   display: flex;
+  font-weight: 700;
+  
 }
+p{
+  display: grid;
+    grid-template-columns: 3fr 3fr;
+    font-weight: 500;
 
+}
 body {
   margin: 0;
   padding: 0;

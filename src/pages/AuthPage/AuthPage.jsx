@@ -13,8 +13,7 @@ function AuthPage(props) {
 ― Kurt Vonnegut, If This Isn't Nice, What Is?: Advice for the Young
       </p>
       </aside>
-      <h2>The beginning of organizing a new you with... The To Do App! 
-      </h2>
+      <h2>The beginning of organizing a new you with... The To Do App!</h2>
       <SignUpForm setUser={props.setUser} />
       <LoginForm setUser={props.setUser} />
     </main>
