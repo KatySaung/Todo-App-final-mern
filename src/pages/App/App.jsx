@@ -30,7 +30,7 @@ function App() {
             {/* Main and Routes are only available when the user is logged in */}
             <NavBar user={user} setUser={setUser} />
             <Routes>
-              <Route path="/" element={<ToDoListPage />} />
+              <Route path="/" element={<ToDoListPage user = {user} />} />
               <Route path="/login" element={<ToDoPage user={user} />} />
               <Route path="/todo/:id/edit" element={<UpdateToDoForm />} />
               <Route path="/login/account" element={<UpdateUserPage user={user} setUser={setUser} />} />

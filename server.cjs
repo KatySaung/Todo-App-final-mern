@@ -32,7 +32,7 @@ app.use(require("./config/checkToken.cjs"));
 app.use('/api/todos', require("./routes/api/todos.cjs"))
 
 
-// catcha all
+// catch all
   app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });

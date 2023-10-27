@@ -5,20 +5,23 @@ import UpdateToDoForm from '../../components/UpdateToDoForm/UpdateToDoForm.jsx';
 
 
 // ToDoListPage: Show list of all todos in db
-// function for Delete button
+// REMOVED DELETE BUTTON AND EDIT BUTTON FROM SHOW PAGE. NEED DELETE AND UPDATE FUNCTION FOR TODOs
 // NEED TRY CATCH FOR DELETE FUNCTION
-function ToDoListPage() {
-    const handleDelete = (id) => {
-        todosAPI.deleteTodo(id);
-        console.log("Delete button is clicked")
-    };
+// ERROR: Each child in list should have unique "key" prop-Check line 29 fetch request
+// HELP: CHECKBOX NOT WORKING
+export default function ToDoListPage() {
+    // const handleDelete = (id) => {
+    //     todosAPI.deleteTodo(id);
+    //     console.log("Delete button is clicked")
+    // };
 
-    const [todos, setTodos] = useState([ ]);
+    const [todos, setTodos] = useState([]);
     const [newTodos, setNewTodos] = useState(null)
     useEffect(() => {
         async function fetchToDoListPage() {
             try {
-                const todos = await todosAPI.findAllTodos()
+                const todos = await todosAPI.findAllTodos({})
+                //const todos = await todosAPI.findAllTodos( )
                 setTodos(todos)
                 console.log(todos)
             } catch (err) {
@@ -28,36 +31,23 @@ function ToDoListPage() {
         fetchToDoListPage()
     }, [])
 
-    // NEED TO Declare handleclick functions for buttons (Defined button function below). (handleClick is in ToDoPage)
     // map over all todos with button functions(delete,edit,add)
 
-// FILTER todos here??
+    // FILTER todos here??
+    // HELP: ALL USERS SHARING SAME TODO!!
+    // HELP: checkbox not working and still E1100 duplicate key error.
     return (
-        <div className="todolist">
-            <h1>Show All Todos</h1>
-            {
-            // if (todo.userId ===  user._id)
-                todos.map((todo, index) => {
-                    
-                    return (
-                        <div key={index} >
-                            <p>
-                                {todo.task}
-                                {todo.title}
-                            </p>
-                            <div>
-                                {/* <h2><Link to={`/todo/${todo._id}/edit`}>edit</Link></h2> */}
-                                <UpdateToDoForm todo={todo} />
-
-                                {/* Button: Delete */}
-                                <button onClick={() => handleDelete(todo._id)}>Delete Todo</button>
-                            </div>
-                        </div>
-                    )
-                })
-            }
-        </div>
+            <div className="todolist">
+                <h1>Show All Todos</h1>
+                {todos.map((todo, index) => (
+                    <p key={index}>
+                        {todo.title}:
+                        {todo.task}
+                        <input type="checkbox" />
+                    </p>
+                ))}
+            </div>
+       
     )
-}
 
-export default ToDoListPage
+}

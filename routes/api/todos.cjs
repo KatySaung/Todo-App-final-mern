@@ -26,7 +26,6 @@ router.post("/create", todosCtrl.todo)
 
 
 // Show: Show single todo
-// HELP: NOT WORKING
 router.get("/:id", todosCtrl.show)
 
 

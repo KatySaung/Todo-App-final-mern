@@ -33,8 +33,6 @@ async function todo(req, res) {
 async function findAllTodos(req, res) {
     try {
         const todo = await Todo.find({ })
-        // .sort("date").populate("text").exec();
-        // todo.sort((a, b) => a.date.sortOrder - b.date.sortOrder);
         console.log("show", todo)
         res.status(200).json(todo);
     } catch (err) {
